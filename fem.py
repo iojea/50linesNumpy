@@ -23,8 +23,8 @@ np.set_printoptions(threshold=np.inf)
 def rigidity_matrix(P,T,file_name=""):
     N = P.shape[0]       #Cantidad de nodos
     d = P.shape[1]       #Dimensión
-    unos = np.ones([1,d+1])
-    rigi = np.vstack((np.zeros([1,d]),np.eye(d)))
+    unos = np.ones((1,d+1))
+    rigi = np.vstack((np.zeros((1,d)),np.eye(d)))
     R = lil_matrix((N,N))
     for t in T:
          nodos = P[t,:]
@@ -45,7 +45,7 @@ def rigidity_matrix(P,T,file_name=""):
 def solver_poisson(P,T,interior):
     R = rigidity_matrix(P,T)
     N = P.shape[0]
-    b = np.zeros([N,1])
+    b = np.zeros((N,1))
     b[0] = 1
     R=R[interior[:,None],interior].tocsr()
     u = np.zeros([len(P),1])

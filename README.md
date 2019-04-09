@@ -1,3 +1,4 @@
 # 50linesNumpy
-Simulaciones en Python.
+Python simulations.
+
 
